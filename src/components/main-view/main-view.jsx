@@ -41,31 +41,60 @@ export class MainView extends React.Component {
 
     onLoggedIn(user) {
         this.setState({
-            user
+            user,
         });
     }
 
+    onRegister(registered) {
+        this.setState({
+            registered,
+        });
+    }
 
     render() {
-        const { movies, selectedMovie, user } = this.state;
+        const { movies, selectedMovie, user, registered } = this.state;
 
-        /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+        //forcing a registration form for testing
+        if (registered) {
+            return <RegistrationView onRegister={(bool) => this.onRegister(bool)} />;
+        }
 
-        // Before the movies have been loaded
-        if (movies.length === 0) return <div className="main-view" />;
+        //if user is no logged in - force a login form
+        if (!user) {
+            return (
+                <LoginView
+                    onLoggedIn={(user) => this.onLoggedIn(user)}
+                    onRegister={(bool) => this.onRegister(bool)}
+                />
+            );
+        }
 
+        if (movies.length === 0)
+            return <div className="main-view">The list is empty</div>;
+
+        //if no movie is selected show the list -
+        //if a movie is selected show the Movie View details
         return (
-            <div className="main-view">
-                {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
-                {selectedMovie
-                    ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                    : movies.map(movie => (
-                        <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
+            <div className="main-vew">
+                {selectedMovie ? (
+                    <MovieView
+                        movie={selectedMovie}
+                        onBackClick={(newSelectedMovie) => {
+                            this.setSelectedMovie(newSelectedMovie);
+                        }}
+                    />
+                ) : (
+                    movies.map((movie) => (
+                        <MovieCard
+                            key={movie._id}
+                            movie={movie}
+                            onMovieClick={(movie) => {
+                                this.setSelectedMovie(movie);
+                            }}
+                        />
                     ))
-                }
+                )}
             </div>
         );
     }
-
 }
