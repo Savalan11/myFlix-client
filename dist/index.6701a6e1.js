@@ -25196,7 +25196,7 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     componentDidMount() {
-        _axiosDefault.default.get('https://pure-depths-67515.herokuapp.com/').then((response)=>{
+        _axiosDefault.default.get('https://serene-castle-59289.herokuapp.com/').then((response)=>{
             this.setState({
                 movies: response.data
             });
