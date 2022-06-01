@@ -945,8 +945,8 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
+//import MainView from './components/main-view/main-view';
 var _mainView = require("./components/main-view/main-view");
-var _mainViewDefault = parcelHelpers.interopDefault(_mainView);
 var _container = require("react-bootstrap/Container");
 var _containerDefault = parcelHelpers.interopDefault(_container);
 // Import statement to indicate that you need to bundle `./index.scss`
@@ -957,13 +957,13 @@ class MyFlixApplication extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsx(_containerDefault.default, {
             __source: {
                 fileName: "src/index.jsx",
-                lineNumber: 13
+                lineNumber: 14
             },
             __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_mainViewDefault.default, {
+            children: /*#__PURE__*/ _jsxRuntime.jsx(_mainView.MainView, {
                 __source: {
                     fileName: "src/index.jsx",
-                    lineNumber: 14
+                    lineNumber: 15
                 },
                 __self: this
             })
@@ -41887,7 +41887,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"8AjD4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jQUmY","prop-types":"1tgq3","react-bootstrap":"h2YVd","./login-view.scss":"lS4BK","../registration-view/registration-view":"aP2YV"}],"lS4BK":[function() {},{}],"6EiBJ":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","../registration-view/registration-view":"aP2YV","react-bootstrap":"h2YVd","./login-view.scss":"lS4BK","@parcel/transformer-js/src/esmodule-helpers.js":"8AjD4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jQUmY"}],"lS4BK":[function() {},{}],"6EiBJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41974,7 +41974,7 @@ class MovieCard extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","@parcel/transformer-js/src/esmodule-helpers.js":"8AjD4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jQUmY","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","./movie-card.scss":"cF5gT"}],"cF5gT":[function() {},{}],"ikZdr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","./movie-card.scss":"cF5gT","@parcel/transformer-js/src/esmodule-helpers.js":"8AjD4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jQUmY"}],"cF5gT":[function() {},{}],"ikZdr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -42179,6 +42179,6 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap":"h2YVd","@parcel/transformer-js/src/esmodule-helpers.js":"8AjD4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jQUmY","react-bootstrap/CardGroup":"lNZc4","./movie-view.scss":"kvL93"}],"kvL93":[function() {},{}],"jUTZ8":[function() {},{}]},["bg9As","6AQyt","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap":"h2YVd","react-bootstrap/CardGroup":"lNZc4","./movie-view.scss":"kvL93","@parcel/transformer-js/src/esmodule-helpers.js":"8AjD4","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jQUmY"}],"kvL93":[function() {},{}],"jUTZ8":[function() {},{}]},["bg9As","6AQyt","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
