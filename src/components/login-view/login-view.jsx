@@ -17,11 +17,11 @@ export function LoginView(props) {
      props.onLoggedIn('tony');
   };
 
-  const handleNewUser = (e) => {
-    console.log('Registration...');
-    props.useRef
-    return <RegisterView />;
-  };
+  const handleNewUser = (e) => {  
+    console.log('Registration...');  
+    props.onRegister(true);  
+    props.useRef  
+      };
 
   return (
         

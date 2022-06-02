@@ -25209,7 +25209,7 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     componentDidMount() {
-        _axiosDefault.default.get('https://serene-castle-59289.herokuapp.com/').then((response)=>{
+        _axiosDefault.default.get('https://serene-castle-59289.herokuapp.com/movies').then((response)=>{
             this.setState({
                 movies: response.data
             });
@@ -41714,14 +41714,8 @@ function LoginView(props) {
     };
     const handleNewUser = (e)=>{
         console.log('Registration...');
+        props.onRegister(true);
         props.useRef;
-        return(/*#__PURE__*/ _jsxRuntime.jsx(RegisterView, {
-            __source: {
-                fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 23
-            },
-            __self: this
-        }));
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Row, {
         className: "d-flex justify-content-evenly",
