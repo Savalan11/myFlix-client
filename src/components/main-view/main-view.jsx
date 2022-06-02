@@ -8,6 +8,9 @@ import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 //getting array of movies from remote and displaying as a list
 export class MainView extends React.Component {
     constructor() {
@@ -21,7 +24,7 @@ export class MainView extends React.Component {
         };
     }
     componentDidMount() {
-        axios.get('https://serene-castle-59289.herokuapp.com/')
+        axios.get('https://serene-castle-59289.herokuapp.com/movies')
             .then(response => {
                 this.setState({
                     movies: response.data
@@ -75,26 +78,21 @@ export class MainView extends React.Component {
         //if no movie is selected show the list -
         //if a movie is selected show the Movie View details
         return (
-            <div className="main-vew">
-                {selectedMovie ? (
-                    <MovieView
-                        movie={selectedMovie}
-                        onBackClick={(newSelectedMovie) => {
-                            this.setSelectedMovie(newSelectedMovie);
-                        }}
-                    />
-                ) : (
-                    movies.map((movie) => (
-                        <MovieCard
-                            key={movie._id}
-                            movie={movie}
-                            onMovieClick={(movie) => {
-                                this.setSelectedMovie(movie);
-                            }}
-                        />
-                    ))
-                )}
-            </div>
-        );
-    }
-}
+            <Row className="main-view justify-content-md-evenly m-0 p-5 align-items-center">
+              {selectedMovie
+                ? (
+                  // <Col md={12}>
+                    <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                  // </Col>
+                )
+                : movies.map(movie => (
+                  <Col md={3}>
+                      <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+                  </Col>
+                ))
+              }
+            </Row>
+          );
+        }
+      }
+  
