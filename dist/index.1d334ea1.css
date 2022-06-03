@@ -1,4 +1,30 @@
 
+
+.director-view {
+  color: rgb(245, 245, 245);
+}
+
+.label {
+  font-weight: bold;
+}
+.genre-view {
+  color: rgb(245, 245, 245);
+}
+
+.label {
+  font-weight: bold;
+}
+#profile-form {
+  background-color: rgb(9, 27, 73);
+  color: rgb(245, 245, 245);
+  position: absolute;
+  top: 30%;
+}
+
+#profile-form #movie-card {
+  color: rgb(9, 27, 73);
+}
+
 .my-flix {
   color: steelblue;
 }

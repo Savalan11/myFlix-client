@@ -37,7 +37,7 @@ export function LoginView(props) {
     const isReq = validate();
     if (isReq) {
       // Send a request to the server for authentication
-      axios.post('https://movie-api-93167.herokuapp.com/login', {
+      axios.post('https://serene-castle-59289.herokuapp.com/movies/login', {
         Username: username,
         Password: password
       })
