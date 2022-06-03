@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Redirect  } from 'react-router-dom';
 
-import { Col, Row } from 'react-bootstrap/';
+import { Col, Row } from 'react-bootstrap';
 
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';

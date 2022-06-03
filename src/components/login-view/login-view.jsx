@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import { Button, Col, Container, Form, Row } from 'react-bootstrap/';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 import './login-view.scss';
 
@@ -37,7 +37,7 @@ export function LoginView(props) {
     const isReq = validate();
     if (isReq) {
       // Send a request to the server for authentication
-      axios.post('https://serene-castle-59289.herokuapp.com/movies/login', {
+      axios.post('https://serene-castle-59289.herokuapp.com/login', {
         Username: username,
         Password: password
       })
