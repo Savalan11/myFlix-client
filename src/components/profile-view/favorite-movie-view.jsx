@@ -17,7 +17,7 @@ export function FavoriteMoviesView(props) {
   })
 
   const handleMovieDelete = (movieId) => {
-    axios.delete(`https://serene-castle-59289.herokuapp.com/users/${currentUser}/movies/${movieId}`, {
+    axios.delete(`https://movie-api-93167.herokuapp.com/users/${currentUser}/movies/${movieId}`, {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(() => {
