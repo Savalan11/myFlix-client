@@ -24,7 +24,7 @@ export class ProfileView extends React.Component {
     getUser(token) {
         const username = localStorage.getItem('user');
 
-        axios.get(`https://serene-castle-59289.herokuapp.com/users/${username}`, {
+        axios.get(`https://myflixstudio.herokuapp.com/users/${username}`, {
             headers: { Authorization:`Bearer ${token}`}
         })
         .then(response => {
@@ -46,7 +46,7 @@ export class ProfileView extends React.Component {
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
-        axios.put(`https://serene-castle-59289.herokuapp.com/users/${username}`, 
+        axios.put(`https://myflixstudio.herokuapp.com/users/${username}`, 
             {
                 username: this.state.username,
                 password: this.state.password,
@@ -76,7 +76,7 @@ export class ProfileView extends React.Component {
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
-        axios.delete(`https://serene-castle-59289.herokuapp.com/users/${username}/movies/${movie._id}`,
+        axios.delete(`https://myflixstudio.herokuapp.com/users/${username}/movies/${movie._id}`,
             {
                 headers: { Authorization: `Bearer ${token}` }
             }
@@ -95,7 +95,7 @@ export class ProfileView extends React.Component {
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
-        axios.delete(`https://serene-castle-59289.herokuapp.com/users/${username}`, {
+        axios.delete(`https://myflixstudio.herokuapp.com/users/${username}`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then((response) => {
