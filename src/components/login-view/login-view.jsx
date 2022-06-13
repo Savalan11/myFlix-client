@@ -36,7 +36,7 @@ export function LoginView(props) {
     
     if(isReq){
       /* Send a request to the server for authentication */
-      axios.post('https://myflixstudio.herokuapp.com/login', {
+      axios.post('https://serene-castle-59289.herokuapp.com/login', {
         username: username,
         password: password
       })

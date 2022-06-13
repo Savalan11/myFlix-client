@@ -25226,7 +25226,7 @@ class MainView extends _reactDefault.default.Component {
         this.getMovies(authData.token);
     }
     getMovies(token) {
-        _axiosDefault.default.get('https://myflixstudio.herokuapp.com/movies', {
+        _axiosDefault.default.get('https://serene-castle-59289.herokuapp.com/movies', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -28655,7 +28655,7 @@ function LoginView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validate();
-        if (isReq) /* Send a request to the server for authentication */ _axiosDefault.default.post('https://myflixstudio.herokuapp.com/login', {
+        if (isReq) /* Send a request to the server for authentication */ _axiosDefault.default.post('https://serene-castle-59289.herokuapp.com/login', {
             username: username,
             password: password
         }).then((response)=>{
@@ -43980,7 +43980,7 @@ class ProfileView extends _reactDefault.default.Component {
     }
     getUser(token) {
         const username = localStorage.getItem('user');
-        _axiosDefault.default.get(`https://myflixstudio.herokuapp.com/users/${username}`, {
+        _axiosDefault.default.get(`https://serene-castle-59289.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -44000,7 +44000,7 @@ class ProfileView extends _reactDefault.default.Component {
         e.preventDefault();
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        _axiosDefault.default.put(`https://myflixstudio.herokuapp.com/users/${username}`, {
+        _axiosDefault.default.put(`https://serene-castle-59289.herokuapp.com/users/${username}`, {
             username: this.state.username,
             password: this.state.password,
             email: this.state.email,
@@ -44025,7 +44025,7 @@ class ProfileView extends _reactDefault.default.Component {
         e.preventDefault();
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        _axiosDefault.default.delete(`https://myflixstudio.herokuapp.com/users/${username}/movies/${movie._id}`, {
+        _axiosDefault.default.delete(`https://serene-castle-59289.herokuapp.com/users/${username}/movies/${movie._id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -44040,7 +44040,7 @@ class ProfileView extends _reactDefault.default.Component {
     deleteUser() {
         const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        _axiosDefault.default.delete(`https://myflixstudio.herokuapp.com/users/${username}`, {
+        _axiosDefault.default.delete(`https://serene-castle-59289.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -46550,7 +46550,7 @@ function RegistrationView() {
     const handleRegister = (e)=>{
         e.preventDefault();
         const isReq = validate();
-        if (isReq) /* Send a request to the server for authentication */ _axiosDefault.default.post('https://myflixstudio.herokuapp.com/users', {
+        if (isReq) /* Send a request to the server for authentication */ _axiosDefault.default.post('https://serene-castle-59289.herokuapp.com/users', {
             username: username,
             password: password,
             email: email,
