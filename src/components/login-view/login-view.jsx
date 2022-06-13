@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
-
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-
-import './login-view.scss';
+import "./login-view.scss"
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -15,18 +13,18 @@ export function LoginView(props) {
   // validate user inputs
   const validate = () => {
     let isReq = true;
-    if (!username) {
-      setUsernameErr('Username required');
-      isReq= false;
-    } else if (username.length < 2) {
-      setUsernameErr('Username must be at least 2 characters long');
+    if(!username){
+      setUsernameErr('Username Required');
+      isReq = false;
+    }else if(username.length < 2){
+      setUsernameErr('Username must be 2 characters long');
       isReq = false;
     }
-    if (!password) {
-      setPasswordErr('Password required');
+    if(!password){
+      setPasswordErr('Password Required');
       isReq = false;
-    } else if (password.length < 6) {
-      setPasswordErr('Password must be at least 6 characters long');
+    }else if(password.length < 5){
+      setPasswordErr('Password must be 5 characters long');
       isReq = false;
     }
     return isReq;
@@ -35,55 +33,51 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const isReq = validate();
-    if (isReq) {
-      // Send a request to the server for authentication
-      axios.post('https://serene-castle-59289.herokuapp.com/login', {
-        Username: username,
-        Password: password
+    
+    if(isReq){
+      /* Send a request to the server for authentication */
+      axios.post('https://myflixstudio.herokuapp.com/login', {
+        username: username,
+        password: password
       })
       .then(response => {
         const data = response.data;
         props.onLoggedIn(data);
       })
       .catch(e => {
-        console.log('No such user')
+        console.log('no such user')
       });
     }
   };
 
   return (
-    <Container id="login-form">
-      <Row className="justify-content-center">
-        <Col sm="10" md="8" lg="6">
-          <Form>
-            <Form.Group controlId="formUsername">
-              <Form.Label>Username:</Form.Label>
-              <Form.Control type="text" onChange={e => setUsername(e.target.value)} placeholder="Username" />
-              {/* display validation error */}
-              {usernameErr && <p>{usernameErr}</p>}
-            </Form.Group>
-            <Form.Group controlId="formPassword" className="mt-3">
-              <Form.Label>Password:</Form.Label>
-              <Form.Control type="password" onChange={e => setPassword(e.target.value)} placeholder="Password" />
-              {/* display validation error */}
-              {passwordErr && <p>{passwordErr}</p>}
-            </Form.Group>
-            <Row className="mt-3 justify-content-start">
-              <Col sm="10" md="8" lg="6">
-                <Button  variant="warning" type="submit" onClick={handleSubmit}>Login</Button>
-              </Col>
-            </Row>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+    <Row className='justify-content-md-center'>
+      <Col md={5} className="form-wrapper">
+        <Form>
+          <h3 className='text-center welcome'>Welcome to My Flix Studio</h3>
+          <Form.Group controlId="formUsername">
+            <Form.Label>Username:</Form.Label>
+            <Form.Control type="text" placeholder='Username' value={username} onChange={e => setUsername(e.target.value)} />
+            {/* code added here to display validation error */}
+            {usernameErr && <p>{usernameErr}</p>}
+          </Form.Group>
+          <Form.Group controlId="formPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control type="password" placeholder='Password' value={password} onChange={e => setPassword(e.target.value)} />
+            {/* code added here to display validation error */}
+            {passwordErr && <p>{passwordErr}</p>}
+          </Form.Group>
+          <Button variant="outline-primary" type="submit" onClick={handleSubmit}>Login</Button>
+        </Form>
+      </Col>
+    </Row>  
   );
 }
 
 LoginView.propTypes = {
   user: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired
   }),
   onLoggedIn: PropTypes.func.isRequired
-}
+};

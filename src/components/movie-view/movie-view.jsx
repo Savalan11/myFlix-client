@@ -1,66 +1,41 @@
-import React from 'react';
+import React from "react";
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Card, Button, Row, Col } from 'react-bootstrap';
+import "./movie-view.scss";
 
-import { Button, Col, Container, Row } from 'react-bootstrap';
-
-import './movie-view.scss';
+import { Link } from "react-router-dom";
 
 export class MovieView extends React.Component {
-  keypressCallback(event) {
-    console.log(event.key);
-  }
-
-  componentDidMount() {
-    document.addEventListener('keypress', this.keypressCallback);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keypress', this.keypressCallback);
-  }
-
   render() {
     const { movie, onBackClick } = this.props;
-
     return (
-      <Container className="movie-view">
-        <Row className="movie-poster">
-          <img src={movie.ImagePath} />
-        </Row>
-        <Row className="movie-title mt-3">
-          <Col className="label">Title: </Col>
-          <Col className="value">{movie.Title}</Col>
-        </Row>
-        <Row className="movie-description mt-3">
-          <Col className="label">Description: </Col>
-          <Col className="value">{movie.Description}</Col>
-        </Row>
-        <Link to={`/directors/${movie.Director.Name}`}>
-          <Button className="d-block mt-3" variant="info">Director</Button>
-        </Link>
-        <Link to={`/genres/${movie.Genre.Name}`}>
-          <Button className="d-block mt-3" variant="info">Genre</Button>
-        </Link>
-          <Button className="d-block mt-3" onClick={() => { onBackClick(null); }} variant="warning">Back</Button>
-       </Container>
+      <Row className='justify-content-md-center'>
+        <Col md={4} className="">
+          <Card className="movie-view">
+            <Card.Img className="movie-poster" variant="top" src={movie.imagePath} crossOrigin="true" alt="Movie Image" />
+            <Card.Body>
+              <Card.Title className="movie-title">{movie.title}</Card.Title>
+              <Card.Text className="movie-description">{movie.description}</Card.Text>
+              <Link to={`/director/${movie.director.name}`}>
+                <Button variant="outline-info" className="info-buttons">Director</Button>
+              </Link>
+              <Link to={`/genre/${movie.genre.name}`}>
+                <Button variant="outline-info" className="info-buttons">Genre</Button>
+              </Link>
+              <Button variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
     );
   }
 }
 
 MovieView.propTypes = {
   movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-    ImagePath: PropTypes.string.isRequired,
-    Director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.string.isRequired,
-      Death: PropTypes.string
-    }),
-    Genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired
-    })
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    imagePath: PropTypes.string.isRequired
   }).isRequired,
+  onBackClick: PropTypes.func.isRequired
 };
