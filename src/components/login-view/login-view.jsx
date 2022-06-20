@@ -37,8 +37,8 @@ export function LoginView(props) {
     if(isReq){
       /* Send a request to the server for authentication */
       axios.post('https://serene-castle-59289.herokuapp.com/login', {
-        username: username,
-        password: password
+        Username: username,
+        Password: password
       })
       .then(response => {
         const data = response.data;
@@ -76,8 +76,8 @@ export function LoginView(props) {
 
 LoginView.propTypes = {
   user: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired
   }),
   onLoggedIn: PropTypes.func.isRequired
 };

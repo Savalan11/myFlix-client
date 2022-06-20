@@ -34,9 +34,9 @@ class MainView extends React.Component {
 
   onLoggedIn(authData) {
     const { setUser } = this.props;
-    setUser(authData.user.username);
+    setUser(authData.user.Username);
     localStorage.setItem('token', authData.token);
-    localStorage.setItem('user', authData.user.username);
+    localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
   }
 

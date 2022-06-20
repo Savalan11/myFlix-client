@@ -25220,9 +25220,9 @@ class MainView extends _reactDefault.default.Component {
     }
     onLoggedIn(authData) {
         const { setUser  } = this.props;
-        setUser(authData.user.username);
+        setUser(authData.user.Username);
         localStorage.setItem('token', authData.token);
-        localStorage.setItem('user', authData.user.username);
+        localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
     getMovies(token) {
@@ -44207,8 +44207,8 @@ function LoginView(props) {
         e.preventDefault();
         const isReq = validate();
         if (isReq) /* Send a request to the server for authentication */ _axiosDefault.default.post('https://serene-castle-59289.herokuapp.com/login', {
-            username: username,
-            password: password
+            Username: username,
+            Password: password
         }).then((response)=>{
             const data = response.data;
             props.onLoggedIn(data);
@@ -44343,8 +44343,8 @@ _s(LoginView, "bu3RTtfm4zH8nbQBLPx5pzN3ays=");
 _c = LoginView;
 LoginView.propTypes = {
     user: _propTypesDefault.default.shape({
-        username: _propTypesDefault.default.string.isRequired,
-        password: _propTypesDefault.default.string.isRequired
+        Username: _propTypesDefault.default.string.isRequired,
+        Password: _propTypesDefault.default.string.isRequired
     }),
     onLoggedIn: _propTypesDefault.default.func.isRequired
 };
