@@ -12,14 +12,14 @@ export class MovieView extends React.Component {
       <Row className='justify-content-md-center'>
         <Col md={4} className="">
           <Card className="movie-view">
-            <Card.Img className="movie-poster" variant="top" src={movie.imagePath} crossOrigin="true" alt="Movie Image" />
+            <Card.Img className="movie-poster" variant="top" src={movie.ImagePath} crossOrigin="true" alt="Movie Image" />
             <Card.Body>
-              <Card.Title className="movie-title">{movie.title}</Card.Title>
-              <Card.Text className="movie-description">{movie.description}</Card.Text>
-              <Link to={`/director/${movie.director.name}`}>
+              <Card.Title className="movie-title">{movie.Title}</Card.Title>
+              <Card.Text className="movie-description">{movie.Description}</Card.Text>
+              <Link to={`/director/${movie.Director.Name}`}>
                 <Button variant="outline-info" className="info-buttons">Director</Button>
               </Link>
-              <Link to={`/genre/${movie.genre.name}`}>
+              <Link to={`/genre/${movie.Genre.Name}`}>
                 <Button variant="outline-info" className="info-buttons">Genre</Button>
               </Link>
               <Button variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
@@ -33,9 +33,9 @@ export class MovieView extends React.Component {
 
 MovieView.propTypes = {
   movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    imagePath: PropTypes.string.isRequired
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired
   }).isRequired,
   onBackClick: PropTypes.func.isRequired
 };

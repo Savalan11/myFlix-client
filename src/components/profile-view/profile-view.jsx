@@ -189,7 +189,7 @@ export class ProfileView extends React.Component {
                     {favoriteMovies.length > 0 && movies.map((movie) => {if (movie._id === favoriteMovies.find((fav)=> fav === movie._id)) {return ( 
                         <Col md={4} key={movie._id}>
                             <Card className="favorite-movie">
-                                <Card.Img variant="top" src={movie.imagePath} crossOrigin="true" alt="Movie Image" />
+                                <Card.Img variant="top" src={movie.ImagePath} crossOrigin="true" alt="Movie Image" />
                                 <Card.Body>
                                     <Card.Title className="movie-title">{movie.Title}</Card.Title>
                                     <Button value={movie._id} variant="outline-danger" onClick={(e) => this.removeFavorite(e, movie)}>Remove</Button> 
@@ -206,18 +206,17 @@ export class ProfileView extends React.Component {
 
 ProfileView.propTypes = {
     movies: PropTypes.arrayOf(PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        imagePath: PropTypes.string.isRequired,
-        genre: PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            description: PropTypes.string.isRequired,
+        Title: PropTypes.string.isRequired,
+        Description: PropTypes.string.isRequired,
+        ImagePath: PropTypes.string.isRequired,
+        Genre: PropTypes.shape({
+            Name: PropTypes.string.isRequired,
+            Description: PropTypes.string.isRequired,
         }).isRequired,
-        director: PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            bio: PropTypes.string.isRequired,
-            birth: PropTypes.string.isRequired,
-            // death: PropTypes.string.isRequired
+        Director: PropTypes.shape({
+            Name: PropTypes.string.isRequired,
+            Bio: PropTypes.string.isRequired
+
         }).isRequired,
     })).isRequired
 };
