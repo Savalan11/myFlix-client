@@ -1,0 +1,11 @@
+$primary-text: #222;
+$border-color: #ddd;
+$primary-font: 'Roboto Condensed', sans-serif;
+
+.movie-view{
+    color: $primary-text;
+    font-family: $primary-font;
+}
+.info-buttons{
+    margin-right: 10px;
+}
